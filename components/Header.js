@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import logo from '../images/logo.svg'
 import { ShoppingCartIcon } from '@heroicons/react/outline'
-const Header = () => {
+const Header = ({ setShowCart }) => {
   return (
-    <header className="flex flex-grow items-center justify-between border-b-2 border-gray-300 p-1 py-5">
+    <header className="flex flex-grow items-center justify-between border-b-2 border-gray-300 p-1 py-5 px-2">
       <div className="mt-2 flex flex-grow items-center sm:flex-grow-0">
         <Image
           src={logo}
@@ -13,7 +13,10 @@ const Header = () => {
           className="cursor-pointer"
         />
       </div>
-      <div className="relative">
+      <div
+        className="relative cursor-pointer"
+        onClick={() => setShowCart(true)}
+      >
         <ShoppingCartIcon className="h-10" />
         <span className=" absolute bottom-0 right-0 h-4 w-4 bg-black text-center text-xs text-white">
           0

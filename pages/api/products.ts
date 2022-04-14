@@ -6,30 +6,17 @@ type Product = {
     category: string,
     price: number
     currency: string,
-    image: any,
+    image: {},
     bestseller: boolean,
     featured: boolean,
-    details?: any
+    details?: {},
+    dimensions?: {}
 }
-
-    // {
-    //   "name": "Red Bench",
-    //   "category": "people",
-    //   "price": 3.89,
-    //   "currency": "USD",
-    //   "image": {
-    //     "src": "",
-    //     "alt": ""
-    //   },
-    //   "bestseller": true,
-    //   "featured": false,
-    //   "details": null
-    // },
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Product>
+  res: NextApiResponse
 ) {
 
-    res.status(200).json(products)
+    return res.status(200).json({name: "Sabastine"})
 }
