@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Red Bench",
     "category": "people",
     "price": 3.89,
@@ -13,6 +14,7 @@
     "details": null
   },
   {
+    "id": 2,
     "name": "Egg Balloon",
     "category": "food",
     "price": 93.89,
@@ -26,6 +28,7 @@
     "details": null
   },
   {
+    "id": 3,
     "name": "Man",
     "category": "people",
     "price": 100,
@@ -39,6 +42,7 @@
     "details": null
   },
   {
+    "id": 4,
     "name": "Architecture",
     "category": "landmarks",
     "price": 101,
@@ -56,8 +60,297 @@
     "details": null
   },
   {
-    "name": "Samurai King Restling",
+    "id": 5,
+    "name": "Mercedes",
+    "category": "premium",
+    "price": 2500,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/6453067/pexels-photo-6453067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Mercedes"
+    },
+    "bestseller": true,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 6,
+    "name": "Paris",
+    "category": "cities",
+    "price": 590,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Paris"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 7,
+    "name": "The green place",
+    "category": "nature",
+    "price": 590,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "The green place"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 8,
+    "name": "People Surfing on Sea Waves",
+    "category": "premium",
+    "price": 899,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/4319752/pexels-photo-4319752.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "People Surfing on Sea Waves"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 9,
+    "name": "Black and White Cats on the Floor",
+    "category": "pets",
+    "price": 19.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/6853521/pexels-photo-6853521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Black and White Cats on the Floor"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 10,
+    "name": "Pancake With Honey on Plate",
+    "category": "food",
+    "price": 7.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Pancake With Honey on Plate"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 11,
+    "name": "Photo of Black Vehicle Near Brown Concrete Building",
     "category": "landmarks",
+    "price": 3.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/1053460/pexels-photo-1053460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Photo of Black Vehicle Near Brown Concrete Building"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 12,
+    "name": "Photography of Roadway During Dusk",
+    "category": "cities",
+    "price": 103.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Photography of Roadway During Dusk"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 13,
+    "name": "Clouds",
+    "category": "nature",
+    "price": 103.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/2627945/pexels-photo-2627945.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Clouds"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 14,
+    "name": "Portrait of Man on City Street",
+    "category": "people",
+    "price": 209,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/307847/pexels-photo-307847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Portrait of Man on City Street"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 15,
+    "name": "Laptop Computer With Sketch Pad",
+    "category": "premium",
+    "price": 430,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Laptop Computer With Sketch Pad"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 16,
+    "name": "Two White and Brown Kittens",
+    "category": "pets",
+    "price": 8.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/8727896/pexels-photo-8727896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Two White and Brown Kittens"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 17,
+    "name": "Stainless Steel Spoon on Black Ceramic Bowl",
+    "category": "food",
+    "price": 70.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/3789885/pexels-photo-3789885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Stainless Steel Spoon on Black Ceramic Bowl"
+    },
+    "bestseller": true,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 18,
+    "name": "Aerial View of New York City",
+    "category": "landmarks",
+    "price": 308.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/4802537/pexels-photo-4802537.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "alt": "Aerial View of New York City"
+    },
+    "bestseller": true,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 19,
+    "name": "Vehicles on Road Between High-rise Buildings",
+    "category": "cities",
+    "price": 590.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/1525612/pexels-photo-1525612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Vehicles on Road Between High-rise Buildings"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+  {
+    "id": 20,
+    "name": "Arches national park",
+    "category": "nature",
+    "price": 50.99,
+    "currency": "USD",
+    "dimmentions": {
+      "width": 1020,
+      "height": 1020
+    },
+    "image": {
+      "src": "https://images.pexels.com/photos/3900437/pexels-photo-3900437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "alt": "Arches national park"
+    },
+    "bestseller": false,
+    "featured": false,
+    "details": null
+  },
+
+  {
+    "name": "Samurai King Restling",
+    "category": "pets",
     "price": 101,
     "currency": "USD",
     "image": {
@@ -69,7 +362,7 @@
     "details": {
       "dimmentions": { "width": 1020, "height": 1020 },
       "size": 15000,
-      "description": "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock.",
+      "description": "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder.",
       "recommendations": [
         {
           "src": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",

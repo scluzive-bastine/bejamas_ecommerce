@@ -1,38 +1,70 @@
-import Image from 'next/image'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import Product from '../components/Product'
+import { ProductContext } from '../context/context'
+import { useContext } from 'react'
 
-const Products = ({ products, setShowCart }) => {
+const Products = () => {
+  const {
+    products,
+    page,
+    firstPage,
+    lastPage,
+    setPage,
+    setShowCart,
+    data,
+    paginated,
+  } = useContext(ProductContext)
   return (
-    <div className="xl:grid-col-3 grid grid-flow-row-dense grid-cols-1 px-0 sm:grid-cols-2 sm:pl-20 md:grid-cols-2 lg:ml-auto lg:grid-cols-3 ">
-      {products.map(
-        ({ name, category, price, currency, image: src, bestseller }) => (
-          <div className="group sm:pl-5 md:w-full md:py-5 md:pl-5 lg:py-10 lg:pl-10">
-            <div className="relative h-[400px] sm:w-full md:h-[300px] md:w-[200px] lg:h-[400px] lg:w-[300px]">
-              {bestseller && (
-                <div className="absolute top-0 left-0 z-20 bg-white px-8">
-                  Best Seller
-                </div>
-              )}
-              <Image src={src} layout="fill" objectFit="cover" />
-              <button
-                className="button absolute bottom-0 w-full opacity-0 transition duration-150 ease-in-out group-hover:opacity-100"
-                onClick={() => setShowCart(true)}
-              >
-                Add to cart
-              </button>
-            </div>
-            <div className="mt-4 text-lg font-semibold capitalize text-gray-600">
-              {category}
-            </div>
-            <h1 className="my-1 text-2xl font-bold capitalize text-black">
-              {name}
-            </h1>
-            <div className="flex items-center text-xl font-light text-gray-500">
-              <span className="text-sm">$</span>
-              {price}
-            </div>
-          </div>
-        )
-      )}
+    <div className="w-full">
+      <div className="grid grid-flow-row-dense grid-cols-1 px-0 sm:grid-cols-2 sm:pl-20 md:grid-cols-2 lg:ml-auto lg:grid-cols-2 xl:grid-cols-3">
+        {paginated.map(
+          ({ name, id, category, image: src, price, bestseller }) => (
+            <Product
+              key={id}
+              name={name}
+              category={category}
+              src={src}
+              id={id}
+              price={price}
+              bestseller={bestseller}
+              setShowCart={setShowCart}
+            />
+          )
+        )}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <div className="flex space-x-2">
+          <button
+            onClick={firstPage}
+            className={`${page === 0 ? 'opacity-0' : 'opacity-100'}`}
+            disabled={page === 0}
+          >
+            <ChevronLeftIcon className="h-5 px-2 font-bold text-black" />
+          </button>
+
+          {products.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i)}
+              className={`px-2 text-xl ${
+                i === page ? 'text-2xl text-black' : 'text-gray-400'
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={lastPage}
+            className={`${
+              page === products.length - 1 ? 'opacity-0' : 'opacity-100'
+            }`}
+            disabled={page === products.length - 1}
+          >
+            <ChevronRightIcon className="h-5 px-2 font-bold text-black" />
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

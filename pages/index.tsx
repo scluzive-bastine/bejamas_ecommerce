@@ -4,22 +4,14 @@ import Featured from '../components/Featured'
 import Filter from '../components/Filter'
 import Products from '../components/Products'
 import filterIcon from '../images/filter.svg'
-import data from '../products.json'
-import { useState } from 'react'
+import Cart from '../components/Cart'
+import { useContext } from 'react'
 import Image from 'next/image'
 import Checkbox from '../components/Checkbox'
-import { ArrowNarrowDownIcon, ArrowNarrowUpIcon, ChevronDownIcon, XIcon } from '@heroicons/react/outline'
-
-export default function Home()  {
-  const [products, setProducts] = useState(data)
-
-  const featuredProduct = products.filter((item) => (
-    item.featured === true
-  ))
-
-  const [showFilter, setShowFilter] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-
+import { ArrowNarrowDownIcon, ArrowNarrowUpIcon, ChevronDownIcon } from '@heroicons/react/outline'
+import { ProductContext } from '../context/context'
+export default function Home() {
+  const {setShowCart, showCart, featuredProduct, setShowFilter, showFilter} = useContext(ProductContext)
   
   return (
     <div className="bg-white max-w-screen-2xl mx-auto">
@@ -30,34 +22,16 @@ export default function Home()  {
 
       <Header setShowCart={setShowCart} />
 
-      <main className='py-8 sm:py-20 relative px-4 sm:px-0'>
+      <main className='py-8 sm:py-20 relative px-4 sm:px-8'>
         {/* Cart */}
         {showCart && (
-          <div className="absolute right-0 top-0 p-5 w-[300px] md:w-[433px] h-80 bg-white z-20 shadow-md">
-            <div className="px-2 py-2 mb-2 cursor-pointer flex justify-end" onClick={() => setShowCart(false)}>
-              <XIcon className='h-6 text-black' />
-            </div>
-            <div className="flex items-center">
-              <div className='grow'>
-                <h3 className='text-sm md:text-lg text-black font-semibold'>Samurai King Resting</h3>
-                <div className="flex items-center text-lg font-light text-gray-500">
-                  <span className="text-sm">$</span>
-                  100
-                </div>
-              </div>
-              <div>
-                <Image src={featuredProduct[0].image.src} height={80} width={146} objectFit='contain' />
-              </div>
-            </div>
-            <div className="mt-4 border-b border-gray-200"></div>
-            <button className="button-outline w-full mt-8">Clear</button>
-          </div>
+          <Cart />
         )}
         {/* Cart */}
 
         {/* FEATURED PRODUCT */}
         <div className='border-b-2 border-gray-300 pb-20'>
-          <Featured featured={featuredProduct} />
+          <Featured featured={featuredProduct}/>
         </div>
 
         {/* PRODUCTS */}
@@ -79,9 +53,9 @@ export default function Home()  {
             </div>
           </div>
 
-          <div className="md:flex md:flex-row mt-10">
+          <div className="flex flex-grow mt-10">
             <Filter />
-            <Products products={products} setShowCart={setShowCart} />
+            <Products />
           </div>
         </div>
       </main>
