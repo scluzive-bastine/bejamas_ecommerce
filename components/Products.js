@@ -2,7 +2,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import Product from '../components/Product'
 import { ProductContext } from '../context/context'
 import { useContext } from 'react'
-
 const Products = () => {
   const {
     products,

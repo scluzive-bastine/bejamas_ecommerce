@@ -13,23 +13,8 @@ export const Provider = ({ children }) => {
 
   const [showFilter, setShowFilter] = useState(false)
   const [showCart, setShowCart] = useState(false)
-
-  // const nextPage = () => {
-  //   console.log(page);
-  //   if(page >= data.length - 1) {
-  //     setPage(page)
-  //   }else {
-  //     setPage(page + 1)
-  //   }
-  // }
-
-  // const prevPage = () => {
-  //     if(page === 0) {
-  //       setPage(page)
-  //     } else{
-  //       setPage(page - 1)
-  //     }
-  // }
+  const [sorted, setSorted] = useState([])
+  const [sortType, setSortType] = useState('')
 
   const firstPage = () => {
     setPage(0)
@@ -38,9 +23,31 @@ export const Provider = ({ children }) => {
     setPage(products.length - 1)
   }
 
+  // Sorting
+  useEffect(() => {
+    const sortArray = (type) => {
+      let tempProducts = [...data]
+      if (type === 'asc') {
+        tempProducts = tempProducts.sort((a, b) => a.name.localeCompare(b.name))
+        setProducts(paginate(tempProducts))
+        setPaginated(products[page])
+      } else if (type === 'desc') {
+        tempProducts = tempProducts.sort((a, b) => b.name.localeCompare(a.name))
+        setProducts(paginate(tempProducts))
+        setPaginated(products[page])
+      } else if (type === 'price') {
+        tempProducts = tempProducts.sort((a, b) => (a.price > b.price ? 1 : -1))
+        setProducts(paginate(tempProducts))
+        setPaginated(products[page])
+      }
+    }
+
+    sortArray(sortType)
+  }, [sortType])
+
   useEffect(() => {
     setPaginated(products[page])
-  }, [page])
+  }, [page, products])
 
   return (
     <ProductContext.Provider
@@ -57,6 +64,7 @@ export const Provider = ({ children }) => {
         setPage,
         setShowFilter,
         setShowCart,
+        setSortType,
       }}
     >
       {children}

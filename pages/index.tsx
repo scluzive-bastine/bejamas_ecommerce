@@ -5,14 +5,15 @@ import Filter from '../components/Filter'
 import Products from '../components/Products'
 import filterIcon from '../images/filter.svg'
 import Cart from '../components/Cart'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Image from 'next/image'
 import Checkbox from '../components/Checkbox'
-import { ArrowNarrowDownIcon, ArrowNarrowUpIcon, ChevronDownIcon } from '@heroicons/react/outline'
+import { ArrowNarrowDownIcon, ArrowNarrowUpIcon, ChevronDownIcon, SwitchVerticalIcon } from '@heroicons/react/outline'
 import { ProductContext } from '../context/context'
 export default function Home() {
-  const {setShowCart, showCart, featuredProduct, setShowFilter, showFilter} = useContext(ProductContext)
-  
+  const {setShowCart, showCart, featuredProduct, setShowFilter, showFilter, setSortType} = useContext(ProductContext)
+
+    
   return (
     <div className="bg-white max-w-screen-2xl mx-auto">
       <Head>
@@ -43,12 +44,18 @@ export default function Home() {
             </div>
             <div className='hidden md:inline'>
               <div className="flex items-center space-x-3 ">
-                <div className='text-gray-400 flex items-center space-x-1'>
-                  <div className="flex">
-                    <ArrowNarrowDownIcon className='h-5' /> <ArrowNarrowUpIcon className='h-5' /> 
-                  </div>
-                  Sory By</div>
-              <div className='flex items-center space-x-2 text-black'><div>Price</div> <ChevronDownIcon className='h-5' /> </div>
+                <div className='text-gray-400 flex items-center space-x-1 text-lg'>
+                    <SwitchVerticalIcon className='h-5' />
+                  {/* Sort By */}
+                </div>
+                <div className='flex items-center space-x-2 text-black text-lg'>
+                  <select name="sortType" className='outline-none border-0 ring-0' onChange={(e) => setSortType(e.target.value)}>
+                    <option value="">Sort By</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                    <option value="price">Price</option>
+                  </select>
+              </div>
               </div>
             </div>
           </div>
