@@ -10,11 +10,12 @@ const Header = () => {
   const { toggleCart } = useProductContext()
   return (
     <header className="flex flex-grow items-center justify-between border-b-2 border-gray-300 p-1 py-5 px-2 sm:px-8">
-      <div className="mt-2 flex h-[26px] w-[159px] flex-grow items-center sm:flex-grow-0">
+      <div className="relative mt-2 flex h-[26px] w-[159px] flex-grow items-center sm:flex-grow-0">
         <Image
           src={logo}
           width={159}
           height={26}
+          layout="fill"
           objectFit="contain"
           className="cursor-pointer"
           alt="Bejamas Logo"

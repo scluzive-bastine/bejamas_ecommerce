@@ -43,7 +43,13 @@ const Featured = () => {
         </button>
       </div>
       <div className="relative mt-10 h-[239px] sm:h-[450px] lg:h-[533px] xl:h-[600px] 2xl:h-[600px]">
-        <Image src={src} className="" layout="fill" objectFit="cover" />
+        <Image
+          src={src}
+          className=""
+          layout="fill"
+          objectFit="cover"
+          alt={name}
+        />
         <div className="absolute bottom-0 left-0 bg-white px-8 py-2 font-semibold text-black sm:px-10 sm:py-4">
           Photo of the day
         </div>

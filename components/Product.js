@@ -30,7 +30,14 @@ const Product = ({ name, category, price, currency, src, bestseller, id }) => {
             Best Seller
           </div>
         )}
-        <Image src={src} layout="fill" objectFit="cover" alt={name} />
+        <Image
+          src={src}
+          layout="fill"
+          objectFit="cover"
+          height={400}
+          width={302}
+          alt={name}
+        />
         <button
           className="button absolute bottom-0 w-full opacity-0 transition duration-150 ease-in-out group-hover:opacity-100"
           onClick={addItemToCart}

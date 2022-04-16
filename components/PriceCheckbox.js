@@ -53,7 +53,10 @@ const PriceCheckbox = ({ values, checkedItems, onChange = () => null }) => {
             checked={item.isChecked}
             onChange={handleChange}
           />
-          <label className="text-lg font-normal text-gray-700">
+          <label
+            htmlFor={item.price}
+            className="text-lg font-normal text-gray-700"
+          >
             {item.captionText}{' '}
           </label>
         </div>

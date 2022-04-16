@@ -64,8 +64,8 @@ export default function Home() {
         <div className='mt-10'>
           <div className="flex justify-between items-center">
             <div className='text-lg md:text-3xl text-black font-bold'>Photograpy / <span className='text-gray-700 font-light'>Premium Photos</span> </div>
-            <div className="md:hidden flex items-center cursor-pointer h-[30] w-[30]" onClick={showMobileFilter}>
-                <Image src={filterIcon} height={30} width={30} alt="filter icon" />
+            <div className="md:hidden flex items-center cursor-pointer h-[30] w-[30] relative" onClick={showMobileFilter}>
+                <Image src={filterIcon} height={30} width={30} layout="fill" objectFit="contain" alt="filter icon" />
             </div>
             <div className='hidden md:inline'>
               <div className="flex items-center space-x-2">

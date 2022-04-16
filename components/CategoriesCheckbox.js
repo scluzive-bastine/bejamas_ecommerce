@@ -50,7 +50,10 @@ const CategoriesCheckbox = ({ values, checkedItems, onChange }) => {
               checked={item.isChecked}
               onChange={handleChange}
             />
-            <label className="text-xl font-normal text-gray-700">
+            <label
+              htmlFor={item.category}
+              className="text-xl font-normal text-gray-700"
+            >
               {item.category}
             </label>
           </div>
