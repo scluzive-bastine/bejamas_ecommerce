@@ -3,13 +3,14 @@ import { addToBasket } from '../slices/basketSlice'
 import { useDispatch } from 'react-redux'
 import { ProductContext } from '../context/context'
 import { useContext } from 'react'
+import { currencyTransform } from '../utils/functions'
 
-const Product = ({ name, category, price, src, bestseller, id }) => {
+const Product = ({ name, category, price, currency, src, bestseller, id }) => {
   const dispatch = useDispatch()
-  const { setShowCart } = useContext(ProductContext)
+  const { toggleCart } = useContext(ProductContext)
 
   const addItemToCart = () => {
-    setShowCart(true)
+    toggleCart()
     const product = {
       name,
       price,
@@ -29,7 +30,7 @@ const Product = ({ name, category, price, src, bestseller, id }) => {
             Best Seller
           </div>
         )}
-        <Image src={src} layout="fill" objectFit="cover" />
+        <Image src={src} layout="fill" objectFit="cover" alt={name} />
         <button
           className="button absolute bottom-0 w-full opacity-0 transition duration-150 ease-in-out group-hover:opacity-100"
           onClick={addItemToCart}
@@ -42,7 +43,7 @@ const Product = ({ name, category, price, src, bestseller, id }) => {
       </div>
       <h1 className="my-1 text-2xl font-bold capitalize text-black">{name}</h1>
       <div className="flex items-center text-xl font-light text-gray-500">
-        <span className="text-sm">$</span>
+        <span className="text-sm"> {currencyTransform(currency)}</span>
         {price}
       </div>
     </div>

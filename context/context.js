@@ -1,73 +1,68 @@
-import { useState, useEffect, createContext } from 'react'
+import { createContext, useReducer, useContext } from 'react'
+import { INITIAL_STATE, contextReducer } from './contextReducer'
+import { useEffect, useState } from 'react'
 import data from '../products.json'
-import paginate from '../utils/paginate'
 
 export const ProductContext = createContext()
 
-export const Provider = ({ children }) => {
-  const [products, setProducts] = useState(paginate(data))
-  const [page, setPage] = useState(0)
-  const [paginated, setPaginated] = useState(products[page])
+const AppActions = () => {
+  const [products, setProducts] = useState(data)
 
-  const featuredProduct = data.filter((item) => item.featured === true)
+  const [state, dispatch] = useReducer(contextReducer, INITIAL_STATE)
 
-  const [showFilter, setShowFilter] = useState(false)
-  const [showCart, setShowCart] = useState(false)
-  const [sorted, setSorted] = useState([])
-  const [sortType, setSortType] = useState('')
-
-  const firstPage = () => {
-    setPage(0)
-  }
-  const lastPage = () => {
-    setPage(products.length - 1)
+  const toggleCart = () => {
+    dispatch({ type: 'TOGGLE_CART' })
   }
 
-  // Sorting
-  useEffect(() => {
-    const sortArray = (type) => {
-      let tempProducts = [...data]
-      if (type === 'asc') {
-        tempProducts = tempProducts.sort((a, b) => a.name.localeCompare(b.name))
-        setProducts(paginate(tempProducts))
-        setPaginated(products[page])
-      } else if (type === 'desc') {
-        tempProducts = tempProducts.sort((a, b) => b.name.localeCompare(a.name))
-        setProducts(paginate(tempProducts))
-        setPaginated(products[page])
-      } else if (type === 'price') {
-        tempProducts = tempProducts.sort((a, b) => (a.price > b.price ? 1 : -1))
-        setProducts(paginate(tempProducts))
-        setPaginated(products[page])
-      }
-    }
+  const loadProducts = (data) => {
+    dispatch({ type: 'INITIALIZE_PRODUCT', data })
+  }
 
-    sortArray(sortType)
-  }, [sortType])
+  const sortProducts = (data) => {
+    dispatch({ type: 'SORT_PRODUCTS', data })
+  }
+  const filterProductsByCategory = (data) => {
+    dispatch({ type: 'FILTER_PRODUCTS_BY_CATEGORY', data })
+  }
+
+  function filterProductsByPrice(data) {
+    dispatch({ type: 'FILTER_PRODUCTS_BY_PRICE', data })
+  }
 
   useEffect(() => {
-    setPaginated(products[page])
-  }, [page, products])
+    loadProducts(products)
+  }, [])
+
+  return {
+    state,
+    toggleCart,
+    loadProducts,
+    sortProducts,
+    filterProductsByCategory,
+    filterProductsByPrice,
+  }
+}
+
+const Provider = ({ children }) => {
+  const { state, ...restProps } = AppActions()
+
+  const value = {
+    isCartOpen: state.isCartOpen,
+    products: data,
+    sortOptions: state.sortOptions,
+    priceFilterOptions: state.priceFilterOptions,
+    categoryFilterOptions: state.categoryFilterOptions,
+    ...restProps,
+  }
 
   return (
-    <ProductContext.Provider
-      value={{
-        showCart,
-        featuredProduct,
-        paginated,
-        products,
-        page,
-        data,
-        showFilter,
-        firstPage,
-        lastPage,
-        setPage,
-        setShowFilter,
-        setShowCart,
-        setSortType,
-      }}
-    >
-      {children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
   )
 }
+
+const useProductContext = () => {
+  const context = useContext(ProductContext)
+  return context
+}
+
+export { Provider, useProductContext }

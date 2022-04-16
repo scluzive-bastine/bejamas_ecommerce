@@ -1,4 +1,4 @@
-import { ProductContext } from '../context/context'
+import { useProductContext } from '../context/context'
 import { useContext } from 'react'
 import { XIcon } from '@heroicons/react/outline'
 import { selectItems, removeFromBasket } from '../slices/basketSlice'
@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 
 const Cart = () => {
-  const { setShowCart } = useContext(ProductContext)
+  // const { setShowCart } = useContext(ProductContext)
+  const { cart, isCartOpen, toggleCart, resetCart } = useProductContext()
+
   const items = useSelector(selectItems)
 
   const dispatch = useDispatch()
@@ -18,7 +20,7 @@ const Cart = () => {
     <div className="absolute right-0 top-0 z-20 w-[350px] border-2 border-gray-200 bg-white p-5 shadow-md md:w-[433px] lg:w-[450px]">
       <div
         className="mb-2 flex cursor-pointer justify-end px-2 py-2"
-        onClick={() => setShowCart(false)}
+        onClick={toggleCart}
       >
         <XIcon className="h-6 text-black" />
       </div>
@@ -38,7 +40,12 @@ const Cart = () => {
               </div>
             </div>
             <div className="relative h-14 w-28">
-              <Image src={product.src} layout="fill" objectFit="cover" />
+              <Image
+                src={product.src}
+                layout="fill"
+                objectFit="cover"
+                alt={product.name}
+              />
             </div>
           </div>
         ))

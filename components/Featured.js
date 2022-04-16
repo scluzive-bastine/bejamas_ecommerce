@@ -1,14 +1,15 @@
 import Image from 'next/image'
 import { addToBasket } from '../slices/basketSlice'
 import { useDispatch } from 'react-redux'
-import { ProductContext } from '../context/context'
-import { useContext } from 'react'
-const Featured = ({ featured }) => {
+import { useProductContext } from '../context/context'
+import { kilobytesToMegaBytes } from '../utils/functions'
+const Featured = () => {
+  const { products, toggleCart } = useProductContext()
+  const featuredProduct = products.filter((item) => item.featured === true)
   const {
     name,
     category,
     price,
-    currency,
     image: src,
     details: {
       dimmentions: { width, height },
@@ -16,13 +17,12 @@ const Featured = ({ featured }) => {
       description,
       recommendations,
     },
-  } = featured[0]
+  } = featuredProduct[0]
 
-  const { setShowCart } = useContext(ProductContext)
   const dispatch = useDispatch()
 
   const addItemToCart = () => {
-    setShowCart(true)
+    toggleCart()
     const product = {
       name,
       price,
@@ -34,7 +34,7 @@ const Featured = ({ featured }) => {
   return (
     <div>
       <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold sm:text-3xl">{name}</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl">{name}</h1>
         <button
           className="button hidden sm:inline-flex"
           onClick={addItemToCart}
@@ -61,9 +61,9 @@ const Featured = ({ featured }) => {
             <h3 className="text-xl font-semibold text-black sm:text-3xl">
               About the Samurai King Resting
             </h3>
-            <h6 className="mt-3 text-lg font-semibold text-gray-500">
+            <h3 className="mt-3 text-lg font-semibold capitalize text-gray-500">
               {category}
-            </h6>
+            </h3>
             <div className="mt-3 text-gray-500">
               <p>{description}</p>
               <p className="mt-10">
@@ -73,27 +73,34 @@ const Featured = ({ featured }) => {
               </p>
             </div>
           </div>
-          <div className="mt-10 sm:mt-0 sm:pl-10 sm:text-right">
+          <div className="mt-10 sm:mt-10 sm:text-left md:mt-0 md:text-right">
             <h3 className="text-2xl font-semibold text-black">
               People also buy
             </h3>
-            <div className="mt-10 flex flex-grow justify-end space-x-6 sm:space-x-8">
+            <div className="mt-10 flex flex-grow justify-start space-x-6 sm:space-x-8 md:justify-end">
               {recommendations.map((item) => (
                 <div
-                  className="relative h-[120px] w-[200px] cursor-pointer sm:h-[120px] sm:w-full md:w-[160px]"
+                  className="relative h-[150px] w-[117px] cursor-pointer sm:h-[150px] sm:w-[117px] md:h-[150px] md:w-[117px]"
                   key={item.alt}
                 >
-                  <Image src={item.src} layout="fill" objectFit="cover" />
+                  <Image
+                    src={item.src}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={name}
+                  />
                 </div>
               ))}
             </div>
             <div className="mt-10">
-              <h1 className="text-2xl font-semibold">Details</h1>
-              <div className="text-sm text-gray-500">
+              <h1 className="text-2xl font-bold">Details</h1>
+              <div className="text-sm font-normal text-gray-500">
                 <div className="mt-2">
                   Size: {width} x {height} pixel
                 </div>
-                <div className="mt-2">Size: {size / 1000} mb</div>
+                <div className="mt-2">
+                  Size: {kilobytesToMegaBytes(size)} mb
+                </div>
               </div>
             </div>
           </div>

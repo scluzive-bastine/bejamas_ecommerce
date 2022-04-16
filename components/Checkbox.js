@@ -1,14 +1,23 @@
 import React from 'react'
 
-const Checkbox = ({ value }) => {
+const Checkbox = ({ type = 'checkbox', name, checked, value, onChange }) => {
   return (
     <div>
       <input
         type="checkbox"
+        name={name}
         value={value}
-        className="absolute h-8 w-8 opacity-0"
+        checked={checked}
+        className="absolute h-6 w-6 opacity-0"
+        onChange={onChange}
       />
-      <div className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-none border-2 border-black bg-white focus-within:border-gray-500">
+      {/* <label htmlFor="checkbox" className="hidden">
+        {name}
+      </label> */}
+      <div
+        htmlFor="checkbox"
+        className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-none border-2 border-black bg-white focus-within:border-gray-500"
+      >
         <svg
           className="pointer-events-none hidden h-3 w-3 fill-current text-black"
           version="1.1"
