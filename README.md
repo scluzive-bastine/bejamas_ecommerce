@@ -32,4 +32,4 @@ A test to create a proof of concept of an ecommerce solution - Task done by Nwac
 ### Coming soon
 * Using Sanity persist items in cart
 * Next Auth to authenitcate users
-* Checkout with strip
+* Checkout with stripe
