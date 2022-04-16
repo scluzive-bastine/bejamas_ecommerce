@@ -15,7 +15,7 @@ A test to create a proof of concept of an ecommerce solution - Task done by Nwac
 
 ## Requirements / Implementation
 
-* Featured Products: The products list being fetched from the backend had one product with a flag of featured=true. This product was filtered from the array and displayed at the top of the page. Code implementation can be found here: components/Product/FeaturedProduct/index.js
+* Featured Products: The products list being fetched from the backend had one product with a flag of featured=true. This product was filtered from the array and displayed at the top of the page. Code implementation can be found here: components/Featured.js
 
 * Product List: The products displays 6 items at first and hovering over the image displays the "add to cart" button. Some products also have the best seller flag.
 
