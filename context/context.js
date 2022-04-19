@@ -13,6 +13,9 @@ const AppActions = () => {
   const toggleCart = () => {
     dispatch({ type: 'TOGGLE_CART' })
   }
+  const toggleUserDropdown = () => {
+    dispatch({ type: 'TOGGLE_USER_DROPDOWN' })
+  }
 
   const loadProducts = (data) => {
     dispatch({ type: 'INITIALIZE_PRODUCT', data })
@@ -36,6 +39,7 @@ const AppActions = () => {
   return {
     state,
     toggleCart,
+    toggleUserDropdown,
     loadProducts,
     sortProducts,
     filterProductsByCategory,
@@ -48,6 +52,7 @@ const Provider = ({ children }) => {
 
   const value = {
     isCartOpen: state.isCartOpen,
+    isUserDropdownOpen: state.isUserDropdownOpen,
     products: data,
     sortOptions: state.sortOptions,
     priceFilterOptions: state.priceFilterOptions,
