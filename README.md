@@ -30,6 +30,6 @@ A test to create a proof of concept of an ecommerce solution - Task done by Nwac
 * Web performance: In order to achieve great web performance, i utitlized the next js image component to render images specified for every screen thereby reducing Largest Contentful Paint(LCP) core web vital, very cool :).
 
 ### Coming soon
+* Next Auth to authenitcate users, Added ✅
 * Using Sanity persist items in cart
-* Next Auth to authenitcate users
 * Checkout with stripe
