@@ -11,7 +11,8 @@
     },
     "bestseller": true,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 5,
@@ -75,7 +79,8 @@
     },
     "bestseller": true,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 6,
@@ -93,7 +98,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 7,
@@ -111,7 +117,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 8,
@@ -129,7 +136,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 9,
@@ -147,7 +155,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 10,
@@ -165,7 +174,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 11,
@@ -183,7 +193,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 12,
@@ -201,7 +212,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 13,
@@ -219,7 +231,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 14,
@@ -237,7 +250,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 15,
@@ -255,7 +269,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 16,
@@ -273,7 +288,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 17,
@@ -291,7 +307,8 @@
     },
     "bestseller": true,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 18,
@@ -309,7 +326,8 @@
     },
     "bestseller": true,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 19,
@@ -327,7 +345,8 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
   {
     "id": 20,
@@ -345,10 +364,12 @@
     },
     "bestseller": false,
     "featured": false,
-    "details": null
+    "details": null,
+    "quantity": 1
   },
 
   {
+    "id": 21,
     "name": "Samurai King Restling",
     "category": "pets",
     "price": 101,
@@ -359,6 +380,7 @@
     },
     "bestseller": false,
     "featured": true,
+    "quantity": 1,
     "details": {
       "dimmentions": { "width": 1020, "height": 1020 },
       "size": 15000,

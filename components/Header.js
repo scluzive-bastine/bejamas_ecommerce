@@ -6,19 +6,27 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/outline'
 import { useSelector } from 'react-redux'
-import { selectItems } from '../slices/basketSlice'
+import { selectItems, selectTotal } from '../slices/basketSlice'
 import { useProductContext } from '../context/context'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import Cart from './Cart'
 
 const Header = () => {
   const items = useSelector(selectItems)
-  const { toggleCart, toggleUserDropdown, isUserDropdownOpen } =
+  const { toggleCart, toggleUserDropdown, isUserDropdownOpen, isCartOpen } =
     useProductContext()
   const { data: session } = useSession()
+  const router = useRouter()
+
+  const total = useSelector(selectTotal)
 
   return (
     <header className="relative flex flex-grow items-center justify-between border-b-2 border-gray-300 p-1 py-5 px-2 sm:px-8">
-      <div className="relative mt-2 flex h-[26px] w-[159px] items-center sm:flex-grow-0">
+      <div
+        className="relative mt-2 flex h-[26px] w-[159px] items-center sm:flex-grow-0"
+        onClick={() => router.push('/')}
+      >
         <Image
           src={logo}
           width={159}
@@ -50,7 +58,7 @@ const Header = () => {
         <div className="relative cursor-pointer" onClick={toggleCart}>
           <ShoppingCartIcon className="h-10" />
           <span className=" absolute bottom-0 right-0 h-4 w-4 bg-black text-center text-xs text-white">
-            {items.length}
+            {total.quantity}
           </span>
         </div>
       </div>
@@ -66,6 +74,9 @@ const Header = () => {
           </div>
         </div>
       )}
+      {/* Cart */}
+      {isCartOpen && <Cart />}
+      {/* Cart */}
     </header>
   )
 }

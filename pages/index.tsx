@@ -47,13 +47,6 @@ export default function Home() {
 
       <Header />
       <main className='py-8 sm:py-20 relative px-4 sm:px-8 font-archivo'>
-        {/* Cart */}
-        {isCartOpen && (
-          <Cart />
-        )}
-        {/* Cart */}
-
-
         {/* FEATURED PRODUCT */}
         
         <div className='border-b-2 border-gray-300 pb-20'>

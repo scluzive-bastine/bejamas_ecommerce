@@ -5,7 +5,16 @@ import { ProductContext } from '../context/context'
 import { useContext } from 'react'
 import { currencyTransform } from '../utils/functions'
 
-const Product = ({ name, category, price, currency, src, bestseller, id }) => {
+const Product = ({
+  name,
+  category,
+  price,
+  currency,
+  src,
+  bestseller,
+  id,
+  quantity,
+}) => {
   const dispatch = useDispatch()
   const { toggleCart } = useContext(ProductContext)
 
@@ -15,6 +24,10 @@ const Product = ({ name, category, price, currency, src, bestseller, id }) => {
       name,
       price,
       src,
+      category,
+      id,
+      currency,
+      quantity,
     }
     dispatch(addToBasket(product))
   }

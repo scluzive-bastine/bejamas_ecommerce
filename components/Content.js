@@ -89,6 +89,7 @@ export const Content = () => {
               price,
               currency,
               bestseller,
+              quantity,
             }) => (
               <Product
                 key={id}
@@ -99,6 +100,7 @@ export const Content = () => {
                 id={id}
                 price={price}
                 bestseller={bestseller}
+                quantity={quantity}
               />
             )
           )}

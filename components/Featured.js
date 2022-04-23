@@ -7,9 +7,12 @@ const Featured = () => {
   const { products, toggleCart } = useProductContext()
   const featuredProduct = products.filter((item) => item.featured === true)
   const {
+    id,
     name,
     category,
+    currency,
     price,
+    quantity,
     image: src,
     details: {
       dimmentions: { width, height },
@@ -27,6 +30,10 @@ const Featured = () => {
       name,
       price,
       src,
+      id,
+      category,
+      currency,
+      quantity,
     }
     dispatch(addToBasket(product))
   }
