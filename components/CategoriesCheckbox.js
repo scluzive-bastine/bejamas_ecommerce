@@ -7,7 +7,7 @@ const CategoriesCheckbox = ({ values, checkedItems, onChange }) => {
   useEffect(() => {
     if (checkedItems.length !== 0) {
       const newItems = values.map((product) => {
-        return [...checkedItems].includes(product.category)
+        return [...checkedItems].includes(product.category.title)
           ? { ...product, isChecked: true }
           : product
       })
@@ -24,7 +24,7 @@ const CategoriesCheckbox = ({ values, checkedItems, onChange }) => {
 
     setItems((prevState) =>
       prevState.map((product) =>
-        product.category === value
+        product.category.title === value
           ? { ...product, isChecked: isChecked }
           : product
       )
@@ -45,16 +45,16 @@ const CategoriesCheckbox = ({ values, checkedItems, onChange }) => {
           <div className="mb-8 flex items-center space-x-2" key={item.id}>
             <Checkbox
               id={item.id}
-              name={item.category}
-              value={item.category}
+              name={item.category.title}
+              value={item.category.title}
               checked={item.isChecked}
               onChange={handleChange}
             />
             <label
-              htmlFor={item.category}
+              htmlFor={item.category.title}
               className="text-xl font-normal text-gray-700"
             >
-              {item.category}
+              {item.category.title}
             </label>
           </div>
         )

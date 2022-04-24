@@ -12,7 +12,7 @@ export const basketSlice = createSlice({
       state.items = [...state.items, action.payload]
     },
     deleteItemFromBasket: (state, action) => {
-      const index = state.items.findIndex((i) => i.id === action.payload.id)
+      const index = state.items.findIndex((i) => i._id === action.payload.id)
       let newBasket = [...state.items]
       if (index >= 0) {
         newBasket.splice(index, 1)
@@ -32,7 +32,7 @@ export const basketSlice = createSlice({
       return {
         ...state,
         items: state.items.map((item) => {
-          if (item.id === action.payload.id) {
+          if (item._id === action.payload.id) {
             return { ...item, quantity: item.quantity + 1 }
           }
           return item
@@ -45,7 +45,7 @@ export const basketSlice = createSlice({
         ...state,
         items: state.items
           .map((item) => {
-            if (item.id === action.payload.id) {
+            if (item._id === action.payload.id) {
               return { ...item, quantity: item.quantity - 1 }
             }
             return item

@@ -1,13 +1,9 @@
 import { createContext, useReducer, useContext } from 'react'
 import { INITIAL_STATE, contextReducer } from './contextReducer'
-import { useEffect, useState } from 'react'
-import data from '../products.json'
 
 export const ProductContext = createContext()
 
 const AppActions = () => {
-  const [products, setProducts] = useState(data)
-
   const [state, dispatch] = useReducer(contextReducer, INITIAL_STATE)
 
   const toggleCart = () => {
@@ -32,10 +28,6 @@ const AppActions = () => {
     dispatch({ type: 'FILTER_PRODUCTS_BY_PRICE', data })
   }
 
-  useEffect(() => {
-    loadProducts(products)
-  }, [])
-
   return {
     state,
     toggleCart,
@@ -53,7 +45,7 @@ const Provider = ({ children }) => {
   const value = {
     isCartOpen: state.isCartOpen,
     isUserDropdownOpen: state.isUserDropdownOpen,
-    products: data,
+    products: state.products,
     sortOptions: state.sortOptions,
     priceFilterOptions: state.priceFilterOptions,
     categoryFilterOptions: state.categoryFilterOptions,

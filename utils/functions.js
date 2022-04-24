@@ -46,11 +46,11 @@ export const createCategoryFilter = (array) => {
   let values = []
   array.forEach((element, index) => {
     const checkValues = values.filter(
-      (item) => item.category === element.category
+      (item) => item.category.title === element.category.title
     )
     if (checkValues.length === 0) {
       values.push({
-        id: element.id,
+        id: element.category.title,
         category: element.category,
         isChecked: false,
       })
@@ -121,7 +121,7 @@ export const handleFilteringSorting = (
 
   if (categoryParam.length !== 0) {
     newArray = [...newArray].filter((item) =>
-      [...categoryParam].includes(item.category)
+      [...categoryParam].includes(item.category.title)
     )
   }
 

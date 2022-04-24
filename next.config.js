@@ -2,7 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['images.pexels.com'],
+    domains: ['cdn.sanity.io'],
   },
   i18n: {
     locales: ['en'],

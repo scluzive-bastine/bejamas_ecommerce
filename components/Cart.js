@@ -5,6 +5,7 @@ import { selectItems, removeFromBasket } from '../slices/basketSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { urlFor } from '../sanity'
 
 const Cart = () => {
   // const { setShowCart } = useContext(ProductContext)
@@ -43,7 +44,7 @@ const Cart = () => {
             </div>
             <div className="relative h-14 w-28">
               <Image
-                src={product.src}
+                src={urlFor(product.image.asset._ref).url()}
                 layout="fill"
                 objectFit="cover"
                 alt={product.name}

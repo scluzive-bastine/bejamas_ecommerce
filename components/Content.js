@@ -4,6 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
 import Product from '../components/Product'
 import { isEmpty } from 'lodash'
+// import { Product as TypingsProduct } from '../typings'
 
 import { handleFilteringSorting, paginated } from '../utils/functions'
 
@@ -83,21 +84,21 @@ export const Content = () => {
           {newProducts.map(
             ({
               name,
-              id,
+              _id,
               category,
-              image: src,
+              image,
               price,
               currency,
               bestseller,
               quantity,
             }) => (
               <Product
-                key={id}
+                key={_id}
                 name={name}
                 category={category}
-                src={src}
+                src={image}
                 currency={currency}
-                id={id}
+                id={_id}
                 price={price}
                 bestseller={bestseller}
                 quantity={quantity}

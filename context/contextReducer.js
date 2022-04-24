@@ -5,6 +5,7 @@ export const INITIAL_STATE = {
   sortOptions: null,
   priceFilterOptions: null,
   categoryFilterOptions: [],
+  sanityProducts: [],
 }
 
 export const contextReducer = (state, action) => {

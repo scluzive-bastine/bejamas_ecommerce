@@ -3,24 +3,24 @@ import { addToBasket } from '../slices/basketSlice'
 import { useDispatch } from 'react-redux'
 import { useProductContext } from '../context/context'
 import { kilobytesToMegaBytes } from '../utils/functions'
+import { urlFor } from '../sanity'
 const Featured = () => {
   const { products, toggleCart } = useProductContext()
   const featuredProduct = products.filter((item) => item.featured === true)
+  const product = featuredProduct[0]
+
+  if (!product) return null
+
   const {
-    id,
+    _id,
     name,
     category,
     currency,
     price,
     quantity,
-    image: src,
-    details: {
-      dimmentions: { width, height },
-      size,
-      description,
-      recommendations,
-    },
-  } = featuredProduct[0]
+    image,
+    details: { dimmentions, recommendations, size, description },
+  } = product
 
   const dispatch = useDispatch()
 
@@ -29,8 +29,8 @@ const Featured = () => {
     const product = {
       name,
       price,
-      src,
-      id,
+      image,
+      _id,
       category,
       currency,
       quantity,
@@ -51,7 +51,7 @@ const Featured = () => {
       </div>
       <div className="relative mt-10 h-[239px] sm:h-[450px] lg:h-[533px] xl:h-[600px] 2xl:h-[600px]">
         <Image
-          src={src}
+          src={urlFor(image.asset._ref).url()}
           className=""
           layout="fill"
           objectFit="cover"
@@ -75,7 +75,7 @@ const Featured = () => {
               About the Samurai King Resting
             </h3>
             <h3 className="mt-3 text-lg font-semibold capitalize text-gray-500">
-              {category}
+              {category.title}
             </h3>
             <div className="mt-3 text-gray-500">
               <p>{description}</p>
@@ -94,10 +94,10 @@ const Featured = () => {
               {recommendations.map((item) => (
                 <div
                   className="relative h-[150px] w-[117px] cursor-pointer sm:h-[150px] sm:w-[117px] md:h-[150px] md:w-[117px]"
-                  key={item.alt}
+                  key={item._key}
                 >
                   <Image
-                    src={item.src}
+                    src={urlFor(item.asset._ref).url()}
                     layout="fill"
                     objectFit="cover"
                     alt={name}
@@ -109,7 +109,7 @@ const Featured = () => {
               <h1 className="text-2xl font-bold">Details</h1>
               <div className="text-sm font-normal text-gray-500">
                 <div className="mt-2">
-                  Size: {width} x {height} pixel
+                  Size: {dimmentions.width} x {dimmentions.height} pixel
                 </div>
                 <div className="mt-2">
                   Size: {kilobytesToMegaBytes(size)} mb

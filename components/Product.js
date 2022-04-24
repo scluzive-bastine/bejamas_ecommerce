@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { ProductContext } from '../context/context'
 import { useContext } from 'react'
 import { currencyTransform } from '../utils/functions'
+import { urlFor } from '../sanity'
 
 const Product = ({
   name,
@@ -23,9 +24,9 @@ const Product = ({
     const product = {
       name,
       price,
-      src,
+      image: src,
       category,
-      id,
+      _id: id,
       currency,
       quantity,
     }
@@ -44,11 +45,9 @@ const Product = ({
           </div>
         )}
         <Image
-          src={src}
+          src={urlFor(src.asset._ref).url()}
           layout="fill"
           objectFit="cover"
-          height={400}
-          width={302}
           alt={name}
         />
         <button
@@ -59,7 +58,7 @@ const Product = ({
         </button>
       </div>
       <div className="mt-4 text-lg font-semibold capitalize text-gray-600">
-        {category}
+        {category.title}
       </div>
       <h1 className="my-1 text-2xl font-bold capitalize text-black">{name}</h1>
       <div className="flex items-center text-xl font-light text-gray-500">
