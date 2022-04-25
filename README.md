@@ -31,5 +31,5 @@ A test to create a proof of concept of an ecommerce solution - Task done by Nwac
 
 ### Coming soon
 * Next Auth to authenitcate users, Added ✅
-* Using Sanity persist items in cart
+* Adding sanity, Added ✅
 * Checkout with stripe
