@@ -44,7 +44,7 @@ const orders = ({ orders }: Props) => {
 
 export default orders
 
-export async function getServerSideProps(context) { 
+export async function getServerSideProps(context: any) { 
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
     // Get logged in user credentials
     const session = await getSession(context)
@@ -54,7 +54,7 @@ export async function getServerSideProps(context) {
         }
     }
 
-    const query = `*[_type == "orders" ][customer == "${session.user.email}"]`;
+    const query = `*[_type == "orders" ][customer == "${session?.user?.email}"]`;
 
     const dbOrders = await sanityClient.fetch(query)    
 
