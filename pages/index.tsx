@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { ArrowNarrowDownIcon, ArrowNarrowUpIcon } from '@heroicons/react/outline'
 import { useProductContext } from '../context/context'
-import fetchService from '../utils/useFetch'
+import fetchProducts from '../utils/useFetch'
 import { FeaturedLoader, ProductsLoader } from '../utils/loader'
 
 
@@ -24,12 +24,12 @@ export default function Home() {
   const isAsc = currentSort === "asc" && "active";
   const isDesc = currentSort === "desc" && "active";
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setCurrentSort(null)
     setValue(e.target.value)
   }
 
-  const toggleSort = (order) => {
+  const toggleSort = (order: any) => {
     setCurrentSort(order);
     const payload = {
       key: value,
@@ -42,10 +42,9 @@ export default function Home() {
     setIsMobileFilterOpen((prev) => !prev)
   }
 
-  useEffect(
-    () => fetchService.fetchProducts(setLoading, setError, loadProducts),
-    []
-  );
+  useEffect(() => {
+      fetchProducts.fetchProducts(setLoading, setError, loadProducts)
+  }, [])
 
   return (
     <div className="bg-white max-w-screen-2xl mx-auto">

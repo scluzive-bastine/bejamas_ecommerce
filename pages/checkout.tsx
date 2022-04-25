@@ -40,15 +40,15 @@ const checkout = () => {
     // call backend to create a checkout session
     const checkoutSession = await axios.post('/api/create-checkout-session', {
       items: items,
-      email: session.user.email,
+      email: session?.user?.email,
     })
 
     // Redirect user to strip checkout
-    const result = await stripe.redirectToCheckout({
+    const result = await stripe?.redirectToCheckout({
       sessionId: checkoutSession.data.id,
     })
 
-    if (result.error) alert(result.error.message)
+    if (result?.error) alert(result.error.message)
   }
 
   let buttonText
@@ -94,7 +94,7 @@ const checkout = () => {
               </div>
             </div>
             {items.length > 0 ? (
-              items.map((item) => (
+              items.map((item: any) => (
                 <div
                   className="group mb-8 flex-col border-b border-gray-200 pb-4"
                   key={item.name}
