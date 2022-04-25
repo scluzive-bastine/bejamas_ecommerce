@@ -46,6 +46,10 @@ export default function Home() {
       fetchProducts.fetchProducts(setLoading, setError, loadProducts)
   }, [])
 
+  if (error) {
+    return <div className='text-center'>Error!</div>
+  }
+
   return (
     <div className="bg-white max-w-screen-2xl mx-auto">
       <Head>
@@ -54,7 +58,7 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main className='py-8 sm:py-20 relative px-4 sm:px-8 font-archivo'>        
+      <main className='py-8 sm:py-20 relative px-4 sm:px-8 font-archivo'>    
         {loading ? (
           <FeaturedLoader />
          ) : (
