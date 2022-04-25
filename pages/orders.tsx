@@ -4,6 +4,7 @@ import { sanityClient } from "../sanity"
 import moment from 'moment'
 import Order from '../components/Order'
 import {Order as OrderInterface} from '../typings'
+import { GetServerSideProps } from "next"
 
 interface Props { 
     orders: [OrderInterface]
@@ -44,7 +45,7 @@ const orders = ({ orders }: Props) => {
 
 export default orders
 
-export async function getServerSideProps(context: any) { 
+export const getServerSideProps: GetServerSideProps = async (context) => {
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
     // Get logged in user credentials
     const session = await getSession(context)
