@@ -10,9 +10,13 @@
     "@reduxjs/toolkit": "^1.8.1",
     "@sanity/cli": "^2.29.5",
     "@sanity/image-url": "^1.0.1",
+    "@stripe/stripe-js": "^1.29.0",
     "@tailwindcss/forms": "^0.5.0",
+    "axios": "^0.26.1",
     "firebase": "^9.6.11",
     "loadash": "^1.0.0",
+    "micro": "^9.3.4",
+    "moment": "^2.29.3",
     "next": "latest",
     "next-auth": "^4.3.2",
     "next-sanity": "^0.5.2",
@@ -21,7 +25,8 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-lodash": "^0.1.2",
-    "react-redux": "^7.2.8"
+    "react-redux": "^7.2.8",
+    "stripe": "^8.219.0"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

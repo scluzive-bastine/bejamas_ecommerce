@@ -2,13 +2,14 @@ import Image from 'next/image'
 import logo from '../images/logo.svg'
 import {
   LogoutIcon,
+  ShoppingBagIcon,
   ShoppingCartIcon,
   UserCircleIcon,
 } from '@heroicons/react/outline'
 import { useSelector } from 'react-redux'
 import { selectItems, selectTotal } from '../slices/basketSlice'
 import { useProductContext } from '../context/context'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useSession, signIn, signOut, getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Cart from './Cart'
 
@@ -63,13 +64,22 @@ const Header = () => {
         </div>
       </div>
       {isUserDropdownOpen && (
-        <div className="absolute right-20 top-14 z-10 w-48 bg-white py-3 shadow-md">
+        <div className="absolute right-20 top-14 z-10 w-72 bg-white py-3 shadow-md">
           <div
-            className="cursor-pointer px-2 py-3 hover:bg-gray-100"
+            className="cursor-pointer p-3 hover:bg-gray-100"
             onClick={signOut}
           >
             <div className="flex items-center space-x-2">
-              <LogoutIcon className="h-5" /> <span>Sign Out</span>
+              <LogoutIcon className="h-6" /> <span>Sign Out</span>
+            </div>
+          </div>
+          <div className="mt-2 cursor-pointer p-3 hover:bg-gray-100">
+            <div
+              className="flex items-center space-x-2"
+              onClick={() => router.push('/orders')}
+            >
+              <ShoppingBagIcon className="h-6" />
+              <span>Orders</span>
             </div>
           </div>
         </div>
@@ -82,3 +92,11 @@ const Header = () => {
 }
 
 export default Header
+
+export async function getServerSideProps(ctx) {
+  return {
+    props: {
+      session: await getSession(ctx),
+    },
+  }
+}

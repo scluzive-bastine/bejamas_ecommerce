@@ -16,7 +16,7 @@ import { FeaturedLoader, ProductsLoader } from '../utils/loader'
 export default function Home() {  
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const { isCartOpen, sortProducts, loadProducts } = useProductContext()
+  const {sortProducts, loadProducts } = useProductContext()
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
 
   const [value, setValue] = useState("name");

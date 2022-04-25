@@ -10,9 +10,18 @@ export interface Product {
   details: [object]
   image: {
     asset: {
-      url: string
+      _ref: string
     }
   }
   bestseller: boolean
   featured: boolean
+}
+
+export interface Order {
+  _id: string
+  transactionId: string
+  _createdAt: string
+  amount: number
+  amountShipping: number
+  image: string
 }

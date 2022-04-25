@@ -19,7 +19,6 @@ const fetchProducts = async (setLoading, setError, setData) => {
   bestseller,
   featured,
   image
-  
 }`
 
   setLoading(true)

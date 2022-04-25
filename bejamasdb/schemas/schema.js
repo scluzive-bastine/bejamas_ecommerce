@@ -9,6 +9,7 @@ import category from './category'
 import product from './product'
 import vendor from './vendor'
 import productVariant from './productVariant'
+import orders from './orders'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -33,5 +34,6 @@ export default createSchema({
     localeBlockContent,
     localeString,
     productVariant,
+    orders,
   ]),
 })
