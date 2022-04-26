@@ -16,6 +16,7 @@ https://bej-store.vercel.app/
 * Next Js
 * TailwindCss
 * Redux
+* Sanity
 
 ## How to run
 *In the root project directory, type npm install to install the project's dependencies.
