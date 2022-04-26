@@ -47,7 +47,10 @@ export default function Home() {
   }, [])
 
   if (error) {
-    return <div className='text-center'>Error!</div>
+    return <div className='text-center mt-24'>
+      <h1 className='text-2xl'>Error Occured while fetching Data!</h1>
+      <p>Try checking internet or database connection</p>
+    </div>
   }
 
   return (
