@@ -46,5 +46,5 @@ https://bej-store.vercel.app/
 
 # Contact Info
 Let's connect 
-LinkedIn: https://www.linkedin.com/in/sabastine-nwachukwu-921197166/
-Email: toshfuture@gmail.com
+* LinkedIn: https://www.linkedin.com/in/sabastine-nwachukwu-921197166/
+* Email: toshfuture@gmail.com
