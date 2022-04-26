@@ -2,6 +2,15 @@
 
 A test to create a proof of concept of an ecommerce solution - Task done by Nwachukwu Sabastine
 
+## Deployed on 
+https://bej-store.vercel.app/
+
+### Stripe Card Details
+* Card = 4242 4242 4242 4242
+* Use a valid future date, such as 12/34.
+* CVC = 424
+
+
 ## Libraries/Framework
 * React Js
 * Next Js
@@ -29,7 +38,13 @@ A test to create a proof of concept of an ecommerce solution - Task done by Nwac
 
 * Web performance: In order to achieve great web performance, i utitlized the next js image component to render images specified for every screen thereby reducing Largest Contentful Paint(LCP) core web vital, very cool :).
 
-### Coming soon
+### Coming soon (Completed)
 * Next Auth to authenitcate users, Added ✅
 * Adding sanity, Added ✅
-* Checkout with stripe
+* Checkout with stripe, Added ✅
+
+
+# Contact Info
+Let's connect 
+LinkedIn: https://www.linkedin.com/in/sabastine-nwachukwu-921197166/
+Email: toshfuture@gmail.com
